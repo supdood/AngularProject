@@ -1,40 +1,35 @@
 .card input {
   display: inline-block;
   width: 100%;
-  align-content: center;
-  }
+  align-content: center; }
 
 fieldset {
-  margin: 0 15px;
-}
+  margin: 0 15px; }
 
 input.ng-invalid.ng-dirty {
   border-color: palevioletred;
-  background-color: #FFD6D6;
-}
+  background-color: #FFD6D6; }
+
 input.ng-valid.ng-dirty {
   border-color: green;
-  background-color: #D6FFD6;
-}
+  background-color: #D6FFD6; }
 
-.card{
+.card {
   text-align: center;
-  background-color:whitesmoke;
+  background-color: whitesmoke;
   border: 1px solid grey;
-  margin: 20px;  
-}
+  margin: 20px; }
 
-ul li{
+ul li {
   display: inline;
-  margin: 10px;
-}
+  margin: 10px; }
 
 .nav {
   background-color: whitesmoke;
   margin: 0px 20px 0px 20px;
-  border: 1px solid grey;
-}
+  border: 1px solid grey; }
 
 body {
-  background-color: light-grey;
-}
+  background-color: light-grey; }
+
+/*# sourceMappingURL=style.css.map */

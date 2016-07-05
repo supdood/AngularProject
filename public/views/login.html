@@ -16,6 +16,9 @@
     </fieldset>
     <div class="options">
     <button type="submit" class="button large" ng-disabled="myform.$invalid" ng-disabled="myform.$invalid">Login</button>
+    <p>or login with <button class="google button split" ng-click="googleAuth()"><span></span> Google</button> 
+    
+    <button class="facebook button split" ng-click="facebookAuth()"><span></span> Facebook</button>
     <p>or <a ng-href="#/register">register</a></p>
     </div>
   </form>

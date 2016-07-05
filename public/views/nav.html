@@ -2,8 +2,8 @@
  <ul>
    <li float-left><a href="#/"><img src="https://angularjs.org/img/ng-logo.png"></a></li>
    <div class="float-right">
-     <li><a href="#/login">Login</a></li>
-     <li><a href="#/register">Register</a></li>
+     <li ng-hide="session"><a href="#/login">Login</a></li>
+     <li ng-hide="session"><a href="#/register">Register</a></li>
    </div>
 </ul>
 </div>
