@@ -1,0 +1,40 @@
+.card input {
+  display: inline-block;
+  width: 100%;
+  align-content: center;
+  }
+
+fieldset {
+  margin: 0 15px;
+}
+
+input.ng-invalid.ng-dirty {
+  border-color: palevioletred;
+  background-color: #FFD6D6;
+}
+input.ng-valid.ng-dirty {
+  border-color: green;
+  background-color: #D6FFD6;
+}
+
+.card{
+  text-align: center;
+  background-color:whitesmoke;
+  border: 1px solid grey;
+  margin: 20px;  
+}
+
+ul li{
+  display: inline;
+  margin: 10px;
+}
+
+.nav {
+  background-color: whitesmoke;
+  margin: 0px 20px 0px 20px;
+  border: 1px solid grey;
+}
+
+body {
+  background-color: light-grey;
+}
