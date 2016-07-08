@@ -1,41 +1,32 @@
 /*global myApp */
-myApp.factory('Authentication', ['$rootScope', function($rootScope) {
+myApp.factory('Authentication', ['$rootScope', '$firebaseAuth', '$firebaseObject', function($rootScope, $firebaseAuth, $firebaseObject) {
   
-  firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-      firebase.database().ref('users/' + user.uid).on('value', function(snapshot) {
-        $rootScope.session = snapshot.val();
-        $rootScope.$apply();
+  $rootScope.authObj = $firebaseAuth();
+  $rootScope.authObj.$onAuthStateChanged(function(firebaseUser) {
+    if (firebaseUser) {
+      console.log("Signed in as:", firebaseUser.uid);
+      var ref = firebase.database().ref("users/" + firebaseUser.uid);
+      //var child = ref.child(firebaseUser.uid);
+      $firebaseObject(ref).$loaded().then(function(val) {
+        $rootScope.session = val;
       });
     } else {
-      $rootScope.session = "";
+      console.log("Signed out");
+      $rootScope.session = null;
     }
   });
   
-  
   return {
     login: function(user) {
-      firebase.auth().signInWithEmailAndPassword(user.email, user.password)
-        .then(function(){
-          $rootScope.message = "Welcome " + user.email;  
-          $rootScope.$apply();
-        })
-        .catch(function(error) {
-          // Handle Errors here.
-          var errorCode = error.code;
-          var errorMessage = error.message;
-          $rootScope.message = errorMessage;
-          $rootScope.$apply();
-          // ...
+      $rootScope.authObj.$signInWithEmailAndPassword(user.email, user.password).then(function(firebaseUser) {
+          $rootScope.message = "Signed in as: " + user.email;
+        }).catch(function(error) {
+          $rootScope.message = error;
         });
     }, //login
     
     logout: function() {
-      firebase.auth().signOut().then(function() {
-        // Sign-out successful.
-      }, function(error) {
-        // An error happened.
-      });
+      $rootScope.authObj.$signOut();
     }, //logout
     
     register: function(user) {

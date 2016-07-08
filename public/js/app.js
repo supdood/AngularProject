@@ -1,5 +1,6 @@
 var myApp = angular.module('myApp', ['ngRoute', 'firebase']);
 
+
 myApp.config(['$routeProvider', function($routeProvider){
   $routeProvider.
     when('/login', {
@@ -10,9 +11,9 @@ myApp.config(['$routeProvider', function($routeProvider){
     templateUrl:'views/register.html',
     controller:'RegistrationController'
   }).
-  when('/success', {
-    templateUrl:'views/success.html',
-    controller:'SuccessController'
+  when('/meetings', {
+    templateUrl:'views/meetings.html',
+    controller:'MeetingsController'
   }).
   otherwise({
     redirectTo: '/login'
